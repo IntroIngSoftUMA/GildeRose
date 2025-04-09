@@ -1,5 +1,6 @@
 package org.iis.gildedrose.objectoriented;
 
+import org.iis.gildedrose.objectoriented.item.*;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
@@ -11,22 +12,21 @@ import static org.junit.jupiter.api.Assertions.*;
  *
  * @author Antonio J. Nebro
  */
+
 @DisplayName(("The Gilded Rose"))
 class GildedRoseTest {
 
     @Nested
     @DisplayName("When update Aged Brie")
     class TestCasesForBrie {
-        public static final String AGED_BRIE = "Aged Brie";
-
         @DisplayName("Increases its quality by one if sellIn is greater than zero")
         @Test
         void givenAQualityValueAndPositiveSellInWhenUpdateThenQualityIncreasesByOne() {
             // Arrange
             int quality = 0;
             int sellIn = 2;
-            Item item = new Item(AGED_BRIE, sellIn, quality);
-            GildedRose gildedRose = new GildedRose(new Item[] {item});
+            UpdatableItem item = new AgedBrie(sellIn, quality);
+            GildedRose gildedRose = new GildedRose(new UpdatableItem[] {item});
 
             // Act
             gildedRose.updateQuality();
@@ -42,8 +42,8 @@ class GildedRoseTest {
             // Arrange
             int quality = 10;
             int sellIn = 0;
-            Item item = new Item(AGED_BRIE, sellIn, quality);
-            GildedRose gildedRose = new GildedRose(new Item[] {item});
+            UpdatableItem item = new AgedBrie(sellIn, quality);
+            GildedRose gildedRose = new GildedRose(new UpdatableItem[] {item});
 
             // Act
             gildedRose.updateQuality();
@@ -59,8 +59,8 @@ class GildedRoseTest {
             // Arrange
             int quality = 50;
             int sellIn = 0;
-            Item item = new Item(AGED_BRIE, sellIn, quality);
-            GildedRose gildedRose = new GildedRose(new Item[] {item});
+            UpdatableItem item = new AgedBrie(sellIn, quality);
+            GildedRose gildedRose = new GildedRose(new UpdatableItem[] {item});
 
             // Act
             gildedRose.updateQuality();
@@ -76,8 +76,8 @@ class GildedRoseTest {
             // Arrange
             int quality = 50;
             int sellIn = 2;
-            Item item = new Item(AGED_BRIE, sellIn, quality);
-            GildedRose gildedRose = new GildedRose(new Item[] {item});
+            UpdatableItem item = new AgedBrie(sellIn, quality);
+            GildedRose gildedRose = new GildedRose(new UpdatableItem[] {item});
 
             // Act
             gildedRose.updateQuality();
@@ -93,8 +93,8 @@ class GildedRoseTest {
             // Arrange
             int quality = 50;
             int sellIn = 2;
-            Item item = new Item("Aged Brie", sellIn, quality);
-            GildedRose gildedRose = new GildedRose(new Item[] {item});
+            UpdatableItem item = new AgedBrie(sellIn, quality);
+            GildedRose gildedRose = new GildedRose(new UpdatableItem[] {item});
 
             // Act
             gildedRose.updateQuality();
@@ -110,8 +110,8 @@ class GildedRoseTest {
             // Arrange
             int quality = 50;
             int sellIn = 0;
-            Item item = new Item("Aged Brie", sellIn, quality);
-            GildedRose gildedRose = new GildedRose(new Item[] {item});
+            UpdatableItem item = new AgedBrie(sellIn, quality);
+            GildedRose gildedRose = new GildedRose(new UpdatableItem[] {item});
 
             // Act
             gildedRose.updateQuality();
@@ -125,7 +125,6 @@ class GildedRoseTest {
     @Nested
     @DisplayName("When update a backstage pass")
     class TestCasesForBackstagePass {
-        public static final String BACKSTAGE_PASS = "Backstage passes to a TAFKAL80ETC concert";
 
         @DisplayName("Increases its quality by one when sell in is greater than 10")
         @Test
@@ -133,8 +132,8 @@ class GildedRoseTest {
             // Arrange
             int quality = 20;
             int sellIn = 11;
-            Item item = new Item(BACKSTAGE_PASS, sellIn, quality);
-            GildedRose gildedRose = new GildedRose(new Item[] {item});
+            UpdatableItem item = new BackstagePass(sellIn, quality);
+            GildedRose gildedRose = new GildedRose(new UpdatableItem[] {item});
 
             // Act
             gildedRose.updateQuality();
@@ -150,8 +149,8 @@ class GildedRoseTest {
             // Arrange
             int quality = 20;
             int sellIn = 10;
-            Item item = new Item(BACKSTAGE_PASS, sellIn, quality);
-            GildedRose gildedRose = new GildedRose(new Item[] {item});
+            UpdatableItem item = new BackstagePass(sellIn, quality);
+            GildedRose gildedRose = new GildedRose(new UpdatableItem[] {item});
 
             // Act
             gildedRose.updateQuality();
@@ -167,8 +166,8 @@ class GildedRoseTest {
             // Arrange
             int quality = 20;
             int sellIn = 8;
-            Item item = new Item(BACKSTAGE_PASS, sellIn, quality);
-            GildedRose gildedRose = new GildedRose(new Item[] {item});
+            UpdatableItem item = new BackstagePass(sellIn, quality);
+            GildedRose gildedRose = new GildedRose(new UpdatableItem[] {item});
 
             // Act
             gildedRose.updateQuality();
@@ -184,8 +183,8 @@ class GildedRoseTest {
             // Arrange
             int quality = 20;
             int sellIn = 5;
-            Item item = new Item(BACKSTAGE_PASS, sellIn, quality);
-            GildedRose gildedRose = new GildedRose(new Item[] {item});
+            UpdatableItem item = new BackstagePass(sellIn, quality);
+            GildedRose gildedRose = new GildedRose(new UpdatableItem[] {item});
 
             // Act
             gildedRose.updateQuality();
@@ -201,8 +200,8 @@ class GildedRoseTest {
             // Arrange
             int quality = 20;
             int sellIn = 1;
-            Item item = new Item(BACKSTAGE_PASS, sellIn, quality);
-            GildedRose gildedRose = new GildedRose(new Item[] {item});
+            UpdatableItem item = new BackstagePass(sellIn, quality);
+            GildedRose gildedRose = new GildedRose(new UpdatableItem[] {item});
 
             // Act
             gildedRose.updateQuality();
@@ -218,8 +217,8 @@ class GildedRoseTest {
             // Arrange
             int quality = 20;
             int sellIn = 0;
-            Item item = new Item(BACKSTAGE_PASS, sellIn, quality);
-            GildedRose gildedRose = new GildedRose(new Item[] {item});
+            UpdatableItem item = new BackstagePass(sellIn, quality);
+            GildedRose gildedRose = new GildedRose(new UpdatableItem[] {item});
 
             // Act
             gildedRose.updateQuality();
@@ -230,10 +229,10 @@ class GildedRoseTest {
         }
     }
 
+
     @Nested
     @DisplayName("When update Sulfuras")
     class TestCasesForSulfuras {
-        public static final String SULFURAS = "Sulfuras, Hand of Ragnaros";
 
         @DisplayName("Its quality does not decrease")
         @Test
@@ -241,8 +240,8 @@ class GildedRoseTest {
             // Arrange
             int quality = 80;
             int sellIn = 4;
-            Item item = new Item(SULFURAS, sellIn, quality);
-            GildedRose gildedRose = new GildedRose(new Item[] {item});
+            UpdatableItem item = new Sulfuras();
+            GildedRose gildedRose = new GildedRose(new UpdatableItem[] {item});
 
             // Act
             gildedRose.updateQuality();
@@ -256,24 +255,22 @@ class GildedRoseTest {
         @Test
         void whenUpdateThenItsSellInValueRemainsTheSame() {
             // Arrange
-            int quality = 80;
-            int sellIn = 4;
-            Item item = new Item(SULFURAS, sellIn, quality);
-            GildedRose gildedRose = new GildedRose(new Item[] {item});
+            UpdatableItem item = new Sulfuras();
+            GildedRose gildedRose = new GildedRose(new UpdatableItem[] {item});
 
             // Act
+            int previousSellIn = item.sellIn;
             gildedRose.updateQuality();
 
             // Assert
             int newSellIn = item.sellIn;
-            assertEquals(sellIn, newSellIn);
+            assertEquals(previousSellIn, newSellIn);
         }
     }
 
     @Nested
-    @DisplayName("When update a regular item")
+    @DisplayName("When update a normal item")
     class TestCasesForRegularItems {
-        public static final String REGULAR_ITEM = "An Item";
 
         @DisplayName("Decreases its quality by one if sellIn is greater than zero")
         @Test
@@ -281,8 +278,8 @@ class GildedRoseTest {
             // Arrange
             int quality = 10;
             int sellIn = 2;
-            Item item = new Item(REGULAR_ITEM, sellIn, quality);
-            GildedRose gildedRose = new GildedRose(new Item[] {item});
+            Normal item = new Normal("Item name", sellIn, quality);
+            GildedRose gildedRose = new GildedRose(new UpdatableItem[] {item});
 
             // Act
             gildedRose.updateQuality();
@@ -298,8 +295,8 @@ class GildedRoseTest {
             // Arrange
             int quality = 10;
             int sellIn = 0;
-            Item item = new Item(REGULAR_ITEM, sellIn, quality);
-            GildedRose gildedRose = new GildedRose(new Item[] {item});
+            Normal item = new Normal("Item name", sellIn, quality);
+            GildedRose gildedRose = new GildedRose(new UpdatableItem[] {item});
 
             // Act
             gildedRose.updateQuality();
@@ -307,6 +304,96 @@ class GildedRoseTest {
             // Assert
             int newQuality = item.quality;
             assertEquals(quality - 2, newQuality);
+        }
+    }
+
+    @Nested
+    @DisplayName("When update a conjured item")
+    class TestCasesForConjuredItems {
+
+        @DisplayName("Decreases its quality by two if sellIn is greater than one")
+        @Test
+        void givenAQualityValueAndPositiveSellInWhenUpdateThenQualityDecreasesByOne() {
+            // Arrange
+            int quality = 10;
+            int sellIn = 2;
+            Conjured item = new Conjured(sellIn, quality);
+            GildedRose gildedRose = new GildedRose(new UpdatableItem[] {item});
+
+            // Act
+            gildedRose.updateQuality();
+
+            // Assert
+            int newQuality = item.quality;
+            assertEquals(quality - 2, newQuality);
+        }
+
+        @DisplayName("Decreases its quality by four if sellIn is zero")
+        @Test
+        void givenAQualityValueAndSellInIsZeroWhenUpdateThenQualityDecreasesByFour() {
+            // Arrange
+            int quality = 10;
+            int sellIn = 0;
+            Conjured item = new Conjured(sellIn, quality);
+            GildedRose gildedRose = new GildedRose(new UpdatableItem[] {item});
+
+            // Act
+            gildedRose.updateQuality();
+
+            // Assert
+            int newQuality = item.quality;
+            assertEquals(quality - 4, newQuality);
+        }
+
+        @DisplayName("Decreases its quality to zero if its value is one")
+        @Test
+        void givenAQualityValueOfTwoWhenUpdateThenQualityDecreasesToOne() {
+            // Arrange
+            int quality = 1;
+            int sellIn = 3;
+            Conjured item = new Conjured(sellIn, quality);
+            GildedRose gildedRose = new GildedRose(new UpdatableItem[] {item});
+
+            // Act
+            gildedRose.updateQuality();
+
+            // Assert
+            int newQuality = item.quality;
+            assertEquals(0, newQuality);
+        }
+
+        @DisplayName("Decreases its quality to zero if its value is two")
+        @Test
+        void givenAQualityValueOfTwoWhenUpdateThenQualityDecreasesToZero() {
+            // Arrange
+            int quality = 2;
+            int sellIn = 3;
+            Conjured item = new Conjured(sellIn, quality);
+            GildedRose gildedRose = new GildedRose(new UpdatableItem[] {item});
+
+            // Act
+            gildedRose.updateQuality();
+
+            // Assert
+            int newQuality = item.quality;
+            assertEquals(0, newQuality);
+        }
+
+        @DisplayName("If quality is one and sellIn is zero, quality value is zero")
+        @Test
+        void givenAQualityValueOfOneAndSellInIsZeroWhenUpdateThenQualityIsZero() {
+            // Arrange
+            int quality = 1;
+            int sellIn = 0;
+            Conjured item = new Conjured(sellIn, quality);
+            GildedRose gildedRose = new GildedRose(new UpdatableItem[] {item});
+
+            // Act
+            gildedRose.updateQuality();
+
+            // Assert
+            int newQuality = item.quality;
+            assertEquals(0, newQuality);
         }
     }
 }
